@@ -30,102 +30,103 @@ export default function Hero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/65" />
-        {/* Gradient fade top → bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80" />
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 pb-10 pt-28 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 pb-10 pt-20 sm:px-6 lg:px-8">
 
-        {/* ── Headline ── */}
-        <motion.h1
-          initial="hidden"
-          animate="visible"
-          variants={{ visible: { transition: { staggerChildren: 0.13 } } }}
-          className="mb-5 max-w-3xl text-4xl font-extrabold leading-[1.07] tracking-tight sm:text-5xl lg:text-6xl"
-        >
-          {['Discover ', 'property investments'].map((part, i) => (
+        {/* ══ HEADER — centered ══ */}
+        <div className="mb-10 flex flex-col items-center text-center">
+
+          {/* Headline */}
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={{ visible: { transition: { staggerChildren: 0.13 } } }}
+            className="mb-4 max-w-3xl text-4xl font-extrabold leading-[1.07] tracking-tight sm:text-5xl lg:text-6xl"
+          >
             <motion.span
-              key={i}
               variants={{
                 hidden: { opacity: 0, y: 22 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
               }}
               className="block text-white"
             >
-              {i === 0 ? (
-                <>
-                  Discover{' '}
-                  <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                    high-growth
-                  </span>
-                </>
-              ) : (
-                part
-              )}
+              Discover{' '}
+              <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                high-growth
+              </span>
             </motion.span>
-          ))}
-        </motion.h1>
+            <motion.span
+              variants={{
+                hidden: { opacity: 0, y: 22 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+              }}
+              className="block text-white"
+            >
+              property investments
+            </motion.span>
+          </motion.h1>
 
-        {/* ── Subtext ── */}
-        <motion.p
-          {...fadeUp(0.32)}
-          className="mb-8 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg"
-        >
-          Join the CEG Equity Token batch. Start building your portfolio
-          <br className="hidden sm:block" />
-          with fractional ownership of global assets.
-        </motion.p>
-
-        {/* ── CTAs ── */}
-        <motion.div
-          {...fadeUp(0.44)}
-          className="mb-14 flex flex-col gap-3 sm:flex-row sm:items-center"
-        >
-          <motion.a
-            href="#signup"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(249,115,22,0.45)' }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 18 }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-colors duration-300 hover:from-orange-400 hover:to-orange-500 sm:w-auto"
+          {/* Subtext */}
+          <motion.p
+            {...fadeUp(0.32)}
+            className="mb-8 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg"
           >
-            Start Investing
-            <ArrowRight size={16} />
-          </motion.a>
-          <motion.a
-            href="#properties"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 18 }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3 text-sm font-medium text-white/85 backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:text-white sm:w-auto"
-          >
-            Browse Properties
-          </motion.a>
-        </motion.div>
+            Join the CEG Equity Token batch. Start building your portfolio
+            <br className="hidden sm:block" />
+            with fractional ownership of global assets.
+          </motion.p>
 
-        {/* ══════════════════════════════════════════════════════════════════
-            VISUAL CARD SECTION
-        ══════════════════════════════════════════════════════════════════ */}
+          {/* CTAs */}
+          <motion.div
+            {...fadeUp(0.44)}
+            className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+          >
+            <motion.a
+              href="#signup"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(249,115,22,0.45)' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 18 }}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-colors duration-300 hover:from-orange-400 hover:to-orange-500 sm:w-auto"
+            >
+              Start Investing
+              <ArrowRight size={16} />
+            </motion.a>
+            <motion.a
+              href="#properties"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 18 }}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3 text-sm font-medium text-white/85 backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:text-white sm:w-auto"
+            >
+              Browse Properties
+            </motion.a>
+          </motion.div>
+        </div>
+
+        {/* ══ VISUAL SECTION ══ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
-          className="flex flex-col items-stretch gap-4 lg:flex-row lg:items-center lg:gap-0"
+          /* Relative so arrow can be absolutely centred inside */
+          className="relative flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-2"
         >
 
-          {/* ── LEFT: Property image with puzzle overlay ── */}
-          <div className="relative h-56 w-full flex-1 overflow-hidden rounded-xl sm:h-72 lg:h-80">
+          {/* ── LEFT: Property image ── */}
+          <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl sm:min-h-[280px]">
             <Image
               src="/Frame 1.png"
               alt="Luxury fractional property"
               fill
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              sizes="(max-width: 1024px) 100vw, 60vw"
             />
 
-            {/* Missing slot glow — marks where the piece belongs */}
+            {/* Slot glow — marks where the piece belongs */}
             <motion.div
               className="absolute z-10"
               style={{ left: '46%', top: '28%', width: '14%', height: '44%' }}
@@ -135,7 +136,7 @@ export default function Hero() {
               <div className="h-full w-full rounded-sm border border-dashed border-orange-400/70 shadow-[inset_0_0_14px_rgba(249,115,22,0.25),0_0_18px_rgba(249,115,22,0.2)]" />
             </motion.div>
 
-            {/* Jigsaw piece — floats above slot, drifts toward it */}
+            {/* Jigsaw piece — hovers above slot, drifts toward it */}
             <motion.div
               className="absolute z-20 w-[17%] cursor-pointer"
               style={{ left: '52%', top: '28%' }}
@@ -163,12 +164,12 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── CENTER: Arrow graphic — overlaps image + card ── */}
-          <div className="relative z-10 -mx-4 flex items-center justify-center lg:-mx-6">
+          {/* ── CENTER: Arrow — absolute, vertically centred, overlaps both sides ── */}
+          <div className="hidden lg:flex lg:shrink-0 lg:items-center lg:justify-center">
             <motion.div
               animate={{ x: [0, 6, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative h-10 w-28 rotate-90 lg:h-14 lg:w-36 lg:rotate-0"
+              className="relative z-50 h-14 w-36 -mx-6"
             >
               <Image
                 src="/arrow.png"
@@ -185,11 +186,11 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.75 }}
-            className="flex w-full flex-col justify-between gap-4 rounded-xl border border-white/10 bg-black/50 p-5 backdrop-blur-sm lg:w-64 lg:self-stretch xl:w-72"
+            className="flex w-full flex-col justify-between gap-6 rounded-xl border border-white/10 bg-black/50 p-6 backdrop-blur-sm lg:w-64 xl:w-72"
           >
-            {/* Value proposition text */}
+            {/* Value proposition */}
             <div>
-              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-white/40">
+              <p className="mb-2 text-xs font-medium uppercase tracking-widest text-white/40">
                 Your entry point
               </p>
               <h2 className="text-2xl font-extrabold leading-snug tracking-tight text-white sm:text-3xl">
@@ -218,8 +219,6 @@ export default function Hero() {
                 </span>
               </div>
             </div>
-
-
           </motion.div>
 
         </motion.div>
